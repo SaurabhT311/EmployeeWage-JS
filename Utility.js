@@ -24,7 +24,6 @@ class Utility {
         const Wage_Per_Hour = 20;
         let workHours = Wage_Per_Hour * this.isPresentorAbsent();
         return workHours;
-
     }
 
     monthWageCalculate()
@@ -39,6 +38,5 @@ class Utility {
         console.log("Total work is done: "+ totalWork);
     }
 }
-
 
 module.exports = new Utility();
