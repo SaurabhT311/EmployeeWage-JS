@@ -1,3 +1,3 @@
 let utility=require('./Utility');
 
-utility.storingDailyWageInArray();
+utility.storingDailyWageInMap();
