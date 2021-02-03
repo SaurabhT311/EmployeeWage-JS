@@ -22,6 +22,7 @@ class Utility {
         }
           return empHrs;
     }
+    
     calculateEmpWage() {
         const Wage_Per_Hour = 20;
         let workHours = Wage_Per_Hour * this.isPresentorAbsent();
