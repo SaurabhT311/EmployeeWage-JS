@@ -1,3 +1,3 @@
 let utility=require('./Utility');
 
-utility.monthWageCalculate();
+utility.storingDailyWageInArray();

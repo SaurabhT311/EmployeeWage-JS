@@ -5,6 +5,7 @@ var totalWorkingHours=160;
 var maxDays=20;
 var Wage_Per_Hour=20;
 
+
 class Utility {
 
     isPresentorAbsent() {
@@ -27,22 +28,42 @@ class Utility {
         return salary;
     }
 
-    monthWageCalculate()
-    {
+     monthWageCalculate()
+     {
         let workingHours=0;
         let workingDays=0;
-        var totalSalary=0;
-        console.log("Welcome to the Employee Wage");
+        var totalSalary=0; 
+         console.log("Welcome to the Employee Wage");
 
+         while(workingHours<=totalWorkingHours && workingDays<=maxDays)
+         {
+             this.isPresentorAbsent();
+             workingHours=workingHours + empHrs;
+             workingDays++;
+         }
+            
+          totalSalary=workingHours * Wage_Per_Hour;
+              console.log("Total work is done: "+ totalSalary);
+            
+         }
+
+    storingDailyWageInArray(){
+        let workingHours=0;
+        let workingDays=0;
+        let empWage=0;
+        let dailyWage = new Array();
+        this.monthWageCalculate();
         while(workingHours<=totalWorkingHours && workingDays<=maxDays)
         {
             this.isPresentorAbsent();
             workingHours=workingHours + empHrs;
             workingDays++;
+            empWage= maxDays * this.isPresentorAbsent();
+          dailyWage.push(empWage);
         }
-            
-         totalSalary=workingHours * Wage_Per_Hour;
-            console.log("Total work is done: "+ totalSalary);
+         console.log(dailyWage);
+         
+          //dailyWage.forEach(element => {console.log(element)});
     }
 }
 
