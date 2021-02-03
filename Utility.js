@@ -59,10 +59,25 @@ class Utility {
             dailyWage.push(empWage);
         }
         console.log(dailyWage);
-
-        //dailyWage.forEach(element => {console.log(element)});
     }
-}
+
+    storingDailyWageInMap()
+    {
+        let workingHours = 0;
+        let workingDays = 0;
+        let empWage = 0;
+        let dailyWage = new Map();
+        this.monthWageCalculate();
+        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
+            this.isPresentorAbsent();
+            workingHours = workingHours + empHrs;
+            workingDays++;
+            empWage = maxDays * this.isPresentorAbsent();
+            dailyWage.set("Day:" + workingDays, empWage);
+        }
+        console.log(dailyWage);
+    } 
+  }
 
 module.exports = new Utility();
 
