@@ -1,11 +1,13 @@
 var IS_FULL_TIME = 1;
 var IS_PART_TIME = 2;
 var empHrs = 0;
+var totalWorkingHours=160;
+var maxDays=20;
+var Wage_Per_Hour=20;
 
 class Utility {
 
     isPresentorAbsent() {
-        
         let empCheck = (Math.floor(Math.random() * 10) % 3);
         switch (empCheck) {
             case IS_FULL_TIME:
@@ -21,24 +23,28 @@ class Utility {
     }
 
     calculateEmpWage() {
-        const Wage_Per_Hour = 20;
-        let workHours = Wage_Per_Hour * this.isPresentorAbsent();
-        return workHours;
-
+        let salary = Wage_Per_Hour * this.isPresentorAbsent();
+        return salary;
     }
 
     monthWageCalculate()
     {
+        let workingHours=0;
+        let workingDays=0;
+        var totalSalary=0;
         console.log("Welcome to the Employee Wage");
-        let workday_in_month=20;
-        let totalWork=0;
-        for(let i=0;i <=workday_in_month; i++)
-        {   
-            totalWork=totalWork + this.calculateEmpWage();    
+
+        while(workingHours<=totalWorkingHours && workingDays<=maxDays)
+        {
+            this.isPresentorAbsent();
+            workingHours=workingHours + empHrs;
+            workingDays++;
         }
-        console.log("Total work is done: "+ totalWork);
+            
+         totalSalary=workingHours * Wage_Per_Hour;
+            console.log("Total work is done: "+ totalSalary);
     }
 }
 
-
 module.exports = new Utility();
+
