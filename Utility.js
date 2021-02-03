@@ -41,7 +41,8 @@ class Utility {
         }
 
         totalSalary = workingHours * Wage_Per_Hour;
-        console.log("Total work is done: " + totalSalary);
+        // console.log("Total work is done: " + totalSalary);
+        return totalSalary;
 
     }
 
@@ -66,15 +67,18 @@ class Utility {
         let workingDays = 0;
         let empWage = 0;
         let dailyWage = new Map();
-        this.monthWageCalculate();
+        let wage = new Map();
+        let totalWage = this.monthWageCalculate();
         while (workingHours <= totalWorkingHours && workingDays < maxDays) {
             this.isPresentorAbsent();
             workingHours = workingHours + empHrs;
             workingDays++;
             empWage = workingDays * this.isPresentorAbsent();
             dailyWage.set("Day:" + workingDays, empWage);
+            wage.set("Total Wage is:", totalWage);
         }
         console.log(dailyWage);
+        console.log(wage);
     }
 
 }
