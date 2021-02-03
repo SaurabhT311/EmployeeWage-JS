@@ -1,9 +1,9 @@
 var IS_FULL_TIME = 1;
 var IS_PART_TIME = 2;
 var empHrs = 0;
-var totalWorkingHours=160;
-var maxDays=20;
-var Wage_Per_Hour=20;
+var totalWorkingHours = 160;
+var maxDays = 20;
+var Wage_Per_Hour = 20;
 
 
 class Utility {
@@ -18,9 +18,9 @@ class Utility {
                 empHrs = 4;
                 break;
             default:
-                empHrs=0;
+                empHrs = 0;
         }
-          return empHrs;
+        return empHrs;
     }
 
     calculateEmpWage() {
@@ -28,42 +28,38 @@ class Utility {
         return salary;
     }
 
-     monthWageCalculate()
-     {
-        let workingHours=0;
-        let workingDays=0;
-        var totalSalary=0; 
-         console.log("Welcome to the Employee Wage");
+    monthWageCalculate() {
+        let workingHours = 0;
+        let workingDays = 0;
+        var totalSalary = 0;
+        console.log("Welcome to the Employee Wage");
 
-         while(workingHours<=totalWorkingHours && workingDays<=maxDays)
-         {
-             this.isPresentorAbsent();
-             workingHours=workingHours + empHrs;
-             workingDays++;
-         }
-            
-          totalSalary=workingHours * Wage_Per_Hour;
-              console.log("Total work is done: "+ totalSalary);
-            
-         }
-
-    storingDailyWageInArray(){
-        let workingHours=0;
-        let workingDays=0;
-        let empWage=0;
-        let dailyWage = new Array();
-        this.monthWageCalculate();
-        while(workingHours<=totalWorkingHours && workingDays<=maxDays)
-        {
+        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
             this.isPresentorAbsent();
-            workingHours=workingHours + empHrs;
+            workingHours = workingHours + empHrs;
             workingDays++;
-            empWage= maxDays * this.isPresentorAbsent();
-          dailyWage.push(empWage);
+        }
+
+        totalSalary = workingHours * Wage_Per_Hour;
+        console.log("Total work is done: " + totalSalary);
+
+    }
+
+    storingDailyWageInArray() {
+        let workingHours = 0;
+        let workingDays = 0;
+        let empWage = 0;
+        let dailyWage = new Map();
+        this.monthWageCalculate();
+        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
+            this.isPresentorAbsent();
+            workingHours = workingHours + empHrs;
+            workingDays++;
+            empWage = maxDays * this.isPresentorAbsent();
+            dailyWage.set("Day:"+ workingDays, empWage);
         }
          console.log(dailyWage);
-         
-          //dailyWage.forEach(element => {console.log(element)});
+        //dailyWage.forEach(element => {console.log(element)});
     }
 }
 
