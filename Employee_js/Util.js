@@ -65,27 +65,5 @@ class Utility {
              console.log("Total work is done: " + totalEmpWage);
     }
 
-   /* storingDailyWageInMap() {
-        let workingHours = 0;
-        let workingDays = 0;
-        let empWage = 0;
-        let dailyWage = new Map();
-         let wage = new Map();
-        let totalWage = this.monthWageCalculate();
-        while (workingHours <= totalWorkingHours && workingDays < maxDays) {
-            this.isPresentorAbsent();
-            workingHours = workingHours + empHrs;
-            workingDays++;
-            empWage = workingDays * this.isPresentorAbsent();
-             dailyWage.set("Day:" + workingDays, empWage);
-             wage.set("Total Wage is:", totalWage);
-            
-        }
-        console.log(dailyWage);
-        console.log(wage);
-    }
-
-}*/
-
 }
 module.exports=new Utility();
