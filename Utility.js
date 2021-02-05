@@ -10,10 +10,6 @@ class EmployeePayroll {
     }
 
     set name(name) {
-        //  if(value.length<2)
-        //  {
-        //      console.log("Please enter valid name");
-        //  }
         this._name = name;
     }
 
@@ -26,9 +22,6 @@ class EmployeePayroll {
     }
 
     set salary(value) {
-        // if (value < 0) {
-        //     console.log("Please enter valid amount");
-        // }
         this._salary = value;
     }
     get salary() {
