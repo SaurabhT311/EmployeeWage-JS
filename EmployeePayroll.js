@@ -12,8 +12,18 @@ class EmployeePayroll {
     }
 
     set name(name) {
-        this._name = name;
+        try{
+            var pattern = new RegExp("^[A-Z][a-zA-Z]{2,}");
+            if(pattern.test(name))
+            {
+            this._name = name;
+        } else{
+            throw ("Name format is incorrect");
+        }
+     } catch(error){
+         console.error(error);
     }
+}
 
     set id(value) {
         this._id = value;
@@ -51,8 +61,10 @@ class EmployeePayroll {
     }
 }
 
-let emp = new EmployeePayroll(7, "Saurabh", 25000, 'Male', "20 Nov");
+let emp = new EmployeePayroll(7,"Saurabh", 25000, 'Male', "20 Nov");
 console.log("Employee name is :" + emp._name );
+emp.name="October";
+console.log(emp.name);
  console.log("Employee id is :" + emp._id);
  console.log("Employee salary is :" + emp._salary);
 console.log("Employee gender is: "+ emp._gender);
