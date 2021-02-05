@@ -1,84 +1,42 @@
-var IS_FULL_TIME = 1;
-var IS_PART_TIME = 2;
-var empHrs = 0;
-var totalWorkingHours = 160;
-var maxDays = 20;
-var Wage_Per_Hour = 20;
+class EmployeePayroll {
 
-
-class Utility {
-
-    isPresentorAbsent() {
-        let empCheck = (Math.floor(Math.random() * 10) % 3);
-        switch (empCheck) {
-            case IS_FULL_TIME:
-                empHrs = 8;
-                break;
-            case IS_PART_TIME:
-                empHrs = 4;
-                break;
-            default:
-                empHrs = 0;
-        }
-        return empHrs;
+    constructor(id, name, salary) {
+        this._id = id;
+        this._name = name;
+        this._salary = salary;
+    }
+    get name() {
+        return this._name;
     }
 
-    calculateEmpWage() {
-        let salary = Wage_Per_Hour * this.isPresentorAbsent();
-        return salary;
+    set name(name) {
+        //  if(value.length<2)
+        //  {
+        //      console.log("Please enter valid name");
+        //  }
+        this._name = name;
     }
 
-    monthWageCalculate() {
-        let workingHours = 0;
-        let workingDays = 0;
-        var totalSalary = 0;
-        console.log("Welcome to the Employee Wage");
-
-        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
-            this.isPresentorAbsent();
-            workingHours = workingHours + empHrs;
-            workingDays++;
-        }
-
-        totalSalary = workingHours * Wage_Per_Hour;
-        console.log("Total work is done: " + totalSalary);
-
+    set id(value) {
+        this._id = value;
     }
 
-    storingDailyWageInArray() {
-        let workingHours = 0;
-        let workingDays = 0;
-        let empWage = 0;
-        let dailyWage = new Array();
-        this.monthWageCalculate();
-        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
-            this.isPresentorAbsent();
-            workingHours = workingHours + empHrs;
-            workingDays++;
-            empWage = maxDays * this.isPresentorAbsent();
-            dailyWage.push(empWage);
-        }
-        console.log(dailyWage);
+    get id() {
+        return this._id;
     }
 
-    storingDailyWageInMap()
-    {
-        let workingHours = 0;
-        let workingDays = 0;
-        let empWage = 0;
-        let dailyWage = new Map();
-        this.monthWageCalculate();
-        while (workingHours <= totalWorkingHours && workingDays <= maxDays) {
-            this.isPresentorAbsent();
-            workingHours = workingHours + empHrs;
-            workingDays++;
-            empWage = maxDays * this.isPresentorAbsent();
-            dailyWage.set("Day:" + workingDays, empWage);
-        }
-        console.log(dailyWage);
+    set salary(value) {
+        // if (value < 0) {
+        //     console.log("Please enter valid amount");
+        // }
+        this._salary = value;
     }
-   
+    get salary() {
+        return this._salary;
     }
+}
 
-module.exports = new Utility();
-
+let emp = new EmployeePayroll(7, "Saurabh", 25000);
+console.log("Employee name is :" + emp._name);
+console.log("Employee id is :" + emp._id);
+console.log("Employee salary is :" + emp._salary);
